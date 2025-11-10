@@ -9,10 +9,14 @@ const CURSORRULES = path.resolve(process.cwd(), ".cursorrules");
 
 export default new InteractiveCommand()
   .command("cursor")
-  .description("Initialize .cursorrules with i18n-specific instructions for Cursor AI.")
+  .description(
+    "Initialize .cursorrules with i18n-specific instructions for Cursor AI.",
+  )
   .addOption(
-    new InteractiveOption("-f, --force", "Overwrite .cursorrules without prompt.")
-      .default(false)
+    new InteractiveOption(
+      "-f, --force",
+      "Overwrite .cursorrules without prompt.",
+    ).default(false),
   )
   .action(async (options) => {
     const spinner = Ora();
@@ -39,7 +43,9 @@ export default new InteractiveCommand()
     try {
       fs.writeFileSync(CURSORRULES, template);
       spinner.succeed("✓ Created .cursorrules");
-      spinner.info(".cursorrules has been created with i18n-specific instructions for Cursor AI.");
+      spinner.info(
+        ".cursorrules has been created with i18n-specific instructions for Cursor AI.",
+      );
       if (!fs.existsSync(CURSORRULES)) {
         spinner.fail(".cursorrules not found after write");
       }
