@@ -47,7 +47,7 @@ export default new InteractiveCommand()
     }
     try {
       fs.writeFileSync(CURSORRULES, template);
-      spinner.succeed("✓ Created .cursorrules");
+      spinner.succeed("Created .cursorrules");
       spinner.info(
         ".cursorrules has been created with i18n-specific instructions for Cursor AI.",
       );
